@@ -49,8 +49,12 @@ window.onload = function() {
         document.getElementById("personStats").innerHTML = "";
 
         for (let i = 0; i < people.length; i++) {
-            if(name.toLowerCase() === people[i].Name.toLowerCase()){
-                document.getElementById("personStats").innerHTML += JSON.stringify(people[i]);
+            if(people[i].Name.toLowerCase().includes(name.toLowerCase())){
+                document.getElementById("personStats").innerHTML += "Name: " + people[i].Name + "<br>" +
+                                                                             "Sex: " + people[i].Sex + "<br>" +
+                                                                             "Born: " + people[i].Born + "<br>" +
+                                                                             "Died: " + people[i].Died + "<br>" +
+                                                                             "Mother: " + people[i].Father +"<br><br>";
                 found = true;
             }
         }
