@@ -42,5 +42,24 @@ window.onload = function() {
         }
     ];
 
+    document.getElementById("personSubmit").onclick = personFinder;
+    function personFinder(){
+        let name = document.getElementById("personName").value;
+        let found = false;
+        document.getElementById("personStats").innerHTML = "";
 
+        for (let i = 0; i < people.length; i++) {
+            if(name.toLowerCase() === people[i].Name.toLowerCase()){
+                document.getElementById("personStats").innerHTML += JSON.stringify(people[i]);
+                found = true;
+            }
+        }
+        if(!found){
+            document.getElementById("err").innerHTML = "No Person Found";
+        }
+        else {
+            document.getElementById("err").innerHTML = "";
+        }
+
+    }
 }
